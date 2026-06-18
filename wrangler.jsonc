@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "golden-share-catering",
+  "compatibility_date": "2026-06-18",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "kv_namespaces": [
+    {
+      "binding": "CATERING_KV",
+      "id": "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+    }
+  ]
+}
