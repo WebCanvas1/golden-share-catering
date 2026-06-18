@@ -3,10 +3,9 @@
   "name": "golden-share-catering",
   "compatibility_date": "2026-06-18",
   "compatibility_flags": ["nodejs_compat"],
-
   "kv_namespaces": [
     {
-      "binding": "CATERING_KV",
+      "binding": "SITE_DATA",
       "id": "41b00d514ae84a1b891d1010e0aa1cd7"
     }
   ]
