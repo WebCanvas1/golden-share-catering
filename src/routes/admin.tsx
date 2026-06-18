@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  LogOut, Save, Plus, Trash2, ArrowUp, ArrowDown, RotateCcw, Eye, EyeOff,
+  LogOut, Plus, Trash2, ArrowUp, ArrowDown, RotateCcw, Eye, EyeOff,
   ChevronLeft, Lock,
 } from "lucide-react";
 import { ADMIN_PASSWORD, ADMIN_SESSION_KEY, ADMIN_USERNAME } from "@/lib/admin-config";
