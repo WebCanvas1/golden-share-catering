@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Phone, Facebook, Instagram, Truck, Clock, MapPin, Heart, Cake, Briefcase,
-  Users, GlassWater, Sparkles, Mail, Calendar, ChevronRight, Check,
+  Users, GlassWater, Sparkles, Mail, ChevronRight, Check,
 } from "lucide-react";
 import { useSiteData } from "@/hooks/use-site-data";
 import heroImg from "@/assets/hero-spread.jpg";
