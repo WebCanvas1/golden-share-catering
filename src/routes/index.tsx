@@ -232,8 +232,13 @@ function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"]
               </div>
               <div className="p-5">
                 <div className="flex items-start justify-between gap-3 mb-1">
-                  <h3 className="font-display text-xl text-gold-soft">{item.name}</h3>
-                  <span className="gold-tag text-sm whitespace-nowrap">{item.price}</span>
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-[#2B2B2B] leading-tight">
+  {item.name}
+</h3>
+
+<span className="gold-tag text-xl md:text-2xl font-bold whitespace-nowrap">
+  {item.price}
+</span>
                 </div>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
