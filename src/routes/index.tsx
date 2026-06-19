@@ -458,7 +458,7 @@ function Footer({
   business, phoneHref,
 }: { business: ReturnType<typeof useSiteData>[0]["business"]; phoneHref: string }) {
   return (
-    <footer className="border-t border-[oklch(0.82_0.13_85/0.15)] bg-ink py-14">
+    <footer className="bg-footer-dark border-t border-[rgba(200,168,107,0.25)] py-14">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <div className="gold-divider mb-6"><Heart className="w-4 h-4 fill-gold text-gold" /></div>
         <p className="font-script text-3xl text-gold mb-2">Let's make your next event delicious</p>
