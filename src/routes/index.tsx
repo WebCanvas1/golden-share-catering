@@ -46,7 +46,7 @@ function HomePage() {
 
 function Header({ business }: { business: ReturnType<typeof useSiteData>[0]["business"] }) {
   return (
-    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[oklch(0.10_0.008_60/0.7)] border-b border-[oklch(0.82_0.13_85/0.15)]">
+    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[rgba(250,248,244,0.85)] border-b border-[rgba(200,168,107,0.2)] shadow-[0_2px_18px_-12px_rgba(43,43,43,0.18)]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-gold" />
