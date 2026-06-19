@@ -256,9 +256,9 @@ function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"]
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {items.map((item) => (
             <article
-  key={item.id}
-  className="card-elegant group flex flex-col h-full"
->
+              key={item.id}
+              className="card-elegant group flex flex-col h-full"
+            >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
@@ -268,7 +268,7 @@ function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"]
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <h3 className="font-display text-2xl md:text-3xl font-bold text-[#2B2B2B] leading-tight">
                     {item.name}
@@ -280,24 +280,17 @@ function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"]
                 </div>
 
                 <p className="text-base text-muted-foreground leading-relaxed">
-  {item.description}
-</p>
+                  {item.description}
+                </p>
 
-<div className="mt-auto pt-5">
-  <a
-    href="#contact"
-    className="btn-gold w-full text-center text-sm py-2.5"
-  >
-    Order Now
-  </a>
-</div>
-
-<a
-  href="#contact"
-  className="btn-gold w-full text-center text-sm py-2.5"
->
-  Order
-</a>
+                <div className="mt-auto pt-5">
+                  <a
+                    href="#contact"
+                    className="btn-gold w-full text-center text-sm py-2.5"
+                  >
+                    Order Now
+                  </a>
+                </div>
               </div>
             </article>
           ))}
