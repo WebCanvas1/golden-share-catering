@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   MADE TO SHARE CATERING — LUXURY BLACK & GOLD DESIGN SYSTEM
+   MADE TO SHARE CATERING — LIGHT IVORY & CHAMPAGNE GOLD
    ============================================================ */
 
 @theme inline {
@@ -46,57 +46,51 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.6rem;
 
-  /* Black/ink base */
-  --background: oklch(0.13 0.01 60);          /* near-black warm */
-  --foreground: oklch(0.96 0.02 85);          /* warm off-white */
-  --ink: oklch(0.10 0.008 60);                /* deepest panel */
-  --ink-soft: oklch(0.17 0.012 70);           /* card / raised */
+  /* Light ivory base */
+  --background: #FAF8F4;             /* warm ivory page */
+  --foreground: #2B2B2B;             /* charcoal text */
+  --ink: #F4EFE6;                    /* slightly deeper ivory for alt sections */
+  --ink-soft: #FFFFFF;               /* pure white cards */
 
-  --card: oklch(0.16 0.012 70);
-  --card-foreground: oklch(0.96 0.02 85);
-  --popover: oklch(0.16 0.012 70);
-  --popover-foreground: oklch(0.96 0.02 85);
+  --card: #FFFFFF;
+  --card-foreground: #2B2B2B;
+  --popover: #FFFFFF;
+  --popover-foreground: #2B2B2B;
 
-  /* Gold accents */
-  --gold: oklch(0.82 0.13 85);                /* primary gold */
-  --gold-soft: oklch(0.90 0.09 90);           /* highlight */
-  --gold-deep: oklch(0.66 0.13 70);           /* deep amber */
+  /* Champagne gold accents */
+  --gold: #C8A86B;                   /* primary champagne gold */
+  --gold-soft: #A98549;              /* deeper gold (readable on white) */
+  --gold-deep: #8C6A35;              /* deepest amber */
 
-  --primary: oklch(0.82 0.13 85);
-  --primary-foreground: oklch(0.13 0.01 60);
-  --secondary: oklch(0.20 0.012 70);
-  --secondary-foreground: oklch(0.96 0.02 85);
-  --muted: oklch(0.20 0.012 70);
-  --muted-foreground: oklch(0.72 0.03 80);
-  --accent: oklch(0.66 0.13 70);
-  --accent-foreground: oklch(0.13 0.01 60);
+  --primary: #C8A86B;
+  --primary-foreground: #2B2B2B;
+  --secondary: #F4EFE6;
+  --secondary-foreground: #2B2B2B;
+  --muted: #F0EBE1;
+  --muted-foreground: #6B6B6B;       /* soft grey text */
+  --accent: #C8A86B;
+  --accent-foreground: #2B2B2B;
 
   --destructive: oklch(0.58 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive-foreground: #FFFFFF;
 
-  --border: oklch(0.82 0.13 85 / 0.18);
-  --input: oklch(0.82 0.13 85 / 0.25);
-  --ring: oklch(0.82 0.13 85);
+  --border: rgba(200, 168, 107, 0.28);
+  --input: rgba(43, 43, 43, 0.14);
+  --ring: #C8A86B;
 
   /* Gradients & effects */
-  --gradient-gold: linear-gradient(135deg, oklch(0.90 0.09 90) 0%, oklch(0.82 0.13 85) 45%, oklch(0.62 0.14 65) 100%);
-  --gradient-gold-soft: linear-gradient(180deg, oklch(0.82 0.13 85 / 0.18), oklch(0.82 0.13 85 / 0));
-  --gradient-dark: radial-gradient(ellipse at top, oklch(0.20 0.015 70) 0%, oklch(0.10 0.008 60) 70%);
-  --gradient-hero: linear-gradient(180deg, oklch(0.10 0.008 60 / 0.4) 0%, oklch(0.10 0.008 60 / 0.92) 100%);
+  --gradient-gold: linear-gradient(135deg, #E0C68F 0%, #C8A86B 45%, #8C6A35 100%);
+  --gradient-gold-soft: linear-gradient(180deg, rgba(200, 168, 107, 0.18), rgba(200, 168, 107, 0));
+  --gradient-dark: radial-gradient(ellipse at top, #FFFFFF 0%, #F4EFE6 70%);
+  --gradient-hero: linear-gradient(180deg, rgba(250, 248, 244, 0.05) 0%, rgba(250, 248, 244, 0.55) 55%, rgba(250, 248, 244, 0.95) 100%);
 
-  --shadow-gold: 0 10px 40px -10px oklch(0.82 0.13 85 / 0.35);
-  --shadow-elegant: 0 20px 50px -20px oklch(0 0 0 / 0.7);
-  --shadow-card: 0 8px 24px -8px oklch(0 0 0 / 0.5);
+  --shadow-gold: 0 14px 40px -14px rgba(200, 168, 107, 0.55);
+  --shadow-elegant: 0 24px 60px -28px rgba(43, 43, 43, 0.22);
+  --shadow-card: 0 10px 30px -14px rgba(43, 43, 43, 0.12);
 
   --transition-elegant: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.dark {
-  /* Site is dark by default — dark class mirrors :root */
-  --background: oklch(0.13 0.01 60);
-  --foreground: oklch(0.96 0.02 85);
 }
 
 @layer base {
@@ -113,14 +107,16 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.82 0.13 85 / 0.08), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 10% 30%, oklch(0.66 0.13 70 / 0.05), transparent 60%);
+      radial-gradient(ellipse 90% 50% at 50% -10%, rgba(200, 168, 107, 0.10), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 10% 30%, rgba(200, 168, 107, 0.06), transparent 60%);
     background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: 0.005em;
+    color: var(--foreground);
   }
 }
 
@@ -154,7 +150,7 @@
 .shadow-elegant { box-shadow: var(--shadow-elegant); }
 .shadow-card    { box-shadow: var(--shadow-card); }
 
-/* Sparkle background */
+/* Sparkle background — subtle gold on light */
 .sparkle-bg {
   position: relative;
 }
@@ -163,12 +159,12 @@
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(1px 1px at 20% 30%, oklch(0.90 0.09 90 / 0.7), transparent 50%),
-    radial-gradient(1px 1px at 80% 20%, oklch(0.90 0.09 90 / 0.5), transparent 50%),
-    radial-gradient(1.5px 1.5px at 60% 70%, oklch(0.82 0.13 85 / 0.6), transparent 50%),
-    radial-gradient(1px 1px at 40% 85%, oklch(0.90 0.09 90 / 0.5), transparent 50%),
-    radial-gradient(1px 1px at 90% 55%, oklch(0.82 0.13 85 / 0.5), transparent 50%),
-    radial-gradient(1.5px 1.5px at 15% 60%, oklch(0.90 0.09 90 / 0.4), transparent 50%);
+    radial-gradient(1px 1px at 20% 30%, rgba(200, 168, 107, 0.45), transparent 50%),
+    radial-gradient(1px 1px at 80% 20%, rgba(200, 168, 107, 0.35), transparent 50%),
+    radial-gradient(1.5px 1.5px at 60% 70%, rgba(200, 168, 107, 0.40), transparent 50%),
+    radial-gradient(1px 1px at 40% 85%, rgba(200, 168, 107, 0.35), transparent 50%),
+    radial-gradient(1px 1px at 90% 55%, rgba(200, 168, 107, 0.30), transparent 50%),
+    radial-gradient(1.5px 1.5px at 15% 60%, rgba(200, 168, 107, 0.30), transparent 50%);
   background-size: 250px 250px, 300px 300px, 200px 200px, 280px 280px, 220px 220px, 260px 260px;
   pointer-events: none;
   animation: sparkle-drift 20s linear infinite;
@@ -178,7 +174,7 @@
   100% { background-position: 250px 250px, -300px 300px, 200px -200px, -280px 280px, 220px -220px, -260px 260px; }
 }
 
-/* Gold divider with heart */
+/* Gold divider */
 .gold-divider {
   display: flex;
   align-items: center;
@@ -194,18 +190,19 @@
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-/* Brush stroke price tag */
+/* Gold price tag */
 .gold-tag {
   background: var(--gradient-gold);
-  color: var(--ink);
+  color: #FFFFFF;
   font-weight: 700;
   padding: 0.4rem 1.1rem;
   border-radius: 9999px;
   box-shadow: var(--shadow-gold);
   display: inline-block;
+  letter-spacing: 0.02em;
 }
 
-/* Elegant button */
+/* Elegant buttons */
 .btn-gold {
   display: inline-flex;
   align-items: center;
@@ -214,16 +211,16 @@
   padding: 0.85rem 1.75rem;
   border-radius: 9999px;
   background: var(--gradient-gold);
-  color: var(--ink);
+  color: #FFFFFF;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   box-shadow: var(--shadow-gold);
   transition: var(--transition-elegant);
-  border: 1px solid oklch(0.90 0.09 90 / 0.5);
+  border: 1px solid rgba(200, 168, 107, 0.6);
 }
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 50px -10px oklch(0.82 0.13 85 / 0.55);
+  box-shadow: 0 18px 50px -12px rgba(200, 168, 107, 0.65);
 }
 
 .btn-outline-gold {
@@ -233,33 +230,42 @@
   gap: 0.5rem;
   padding: 0.8rem 1.75rem;
   border-radius: 9999px;
-  background: transparent;
-  color: var(--gold);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  color: var(--gold-soft);
   border: 1px solid var(--gold);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   transition: var(--transition-elegant);
 }
 .btn-outline-gold:hover {
-  background: oklch(0.82 0.13 85 / 0.1);
+  background: rgba(200, 168, 107, 0.12);
   transform: translateY(-2px);
 }
 
+/* White cards with soft shadow */
 .card-elegant {
-  background: linear-gradient(180deg, oklch(0.18 0.012 70) 0%, oklch(0.14 0.01 60) 100%);
-  border: 1px solid oklch(0.82 0.13 85 / 0.2);
+  background: #FFFFFF;
+  border: 1px solid rgba(200, 168, 107, 0.18);
   border-radius: 1rem;
   box-shadow: var(--shadow-card);
   transition: var(--transition-elegant);
   overflow: hidden;
 }
 .card-elegant:hover {
-  border-color: oklch(0.82 0.13 85 / 0.5);
-  box-shadow: var(--shadow-gold);
+  border-color: rgba(200, 168, 107, 0.5);
+  box-shadow: var(--shadow-elegant);
   transform: translateY(-4px);
 }
 
-/* Fade-in on scroll */
+/* Footer dark band */
+.bg-footer-dark {
+  background: #1a1a1a;
+  color: #EDE6D7;
+}
+.bg-footer-dark h1, .bg-footer-dark h2, .bg-footer-dark h3 { color: #EDE6D7; }
+
+/* Animations */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -267,7 +273,7 @@
 .animate-fade-up { animation: fade-up 0.8s ease-out both; }
 
 @keyframes shimmer {
-  0%, 100% { opacity: 0.6; }
+  0%, 100% { opacity: 0.75; }
   50% { opacity: 1; }
 }
 .animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
