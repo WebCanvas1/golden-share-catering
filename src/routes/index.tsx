@@ -256,9 +256,9 @@ function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"]
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {items.map((item) => (
             <article
-              key={item.id}
-              className="card-elegant group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-            >
+  key={item.id}
+  className="card-elegant group flex flex-col h-full"
+>
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
@@ -279,9 +279,18 @@ function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"]
                   </span>
                 </div>
 
-                <p className="text-base text-muted-foreground leading-relaxed mb-5">
+                <p className="text-base text-muted-foreground leading-relaxed">
   {item.description}
 </p>
+
+<div className="mt-auto pt-5">
+  <a
+    href="#contact"
+    className="btn-gold w-full text-center text-sm py-2.5"
+  >
+    Order Now
+  </a>
+</div>
 
 <a
   href="#contact"
@@ -462,7 +471,7 @@ function Gallery({ gallery }: { gallery: ReturnType<typeof useSiteData>[0]["gall
               </div>
 
               {g.caption && (
-                <div className="p-5">
+                <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-display text-2xl font-bold text-[#2B2B2B]">
                     {g.caption}
                   </h3>
