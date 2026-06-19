@@ -516,57 +516,29 @@ function Contact({
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Enquiry submitted:", form);
+    console.log("Order submitted:", form);
     setSubmitted(true);
   }
 
   return (
     <section id="contact" className="py-24 bg-[#F7F4EF]">
       <div className="max-w-6xl mx-auto px-6">
-       <SectionHeader
-  eyebrow="Ready to Order?"
-  title="Place Your Order"
-/>
+        <SectionHeader eyebrow="Ready to Order?" title="Place Your Order" />
 
-        <div className="mt-14 grid lg:grid-cols-[0.8fr_1.2fr] gap-8 items-stretch">
-          <div className="rounded-[28px] bg-[#2B2B2B] text-white p-8 md:p-10 shadow-2xl flex flex-col justify-between">
-            <div>
-              <p className="uppercase tracking-[0.25em] text-sm text-[#C8A86B] mb-4">
-                Quick Enquiry
-              </p>
-              <h3 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
-                Tell us about your event
-              </h3>
-              <p className="text-white/75 leading-relaxed mb-8">
-                Share your event details and Cass will get back to you with a catering quote.
-              </p>
-
-              <div className="space-y-4">
-                {["Fresh homemade catering", "Packages for every occasion", "Local delivery available"].map((text) => (
-                  <div key={text} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
-                    <span className="text-white/85">{text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <p className="mt-10 font-script text-3xl text-[#C8A86B]">
-              Made fresh. Made local.
-            </p>
-          </div>
-
+        <div className="mt-14 max-w-3xl mx-auto">
           <div className="bg-white rounded-[28px] border border-[#C8A86B]/20 shadow-xl p-6 md:p-10">
             {submitted ? (
               <div className="text-center py-12 animate-fade-up">
                 <div className="w-16 h-16 mx-auto rounded-full bg-gradient-gold flex items-center justify-center mb-6">
                   <Check className="w-8 h-8 text-white" />
                 </div>
+
                 <h3 className="font-display text-4xl text-[#2B2B2B] mb-3">
                   Thank you!
                 </h3>
+
                 <p className="text-muted-foreground max-w-md mx-auto">
-                  Your order request has been received.. Cass will be in touch shortly to confirm your event details.
+                  Your order request has been received. Cass will be in touch shortly to confirm your event details.
                 </p>
               </div>
             ) : (
@@ -648,7 +620,12 @@ function Contact({
                 </div>
 
                 <Field label="Tell us about your event" className="sm:col-span-2">
-                  <textarea rows={5} value={form.message} onChange={(e) => update("message", e.target.value)} className="form-input resize-none" />
+                  <textarea
+                    rows={5}
+                    value={form.message}
+                    onChange={(e) => update("message", e.target.value)}
+                    className="form-input resize-none"
+                  />
                 </Field>
 
                 <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-4 pt-3">
@@ -668,19 +645,6 @@ function Contact({
     </section>
   );
 }
-function Field({
-  label, required, className = "", children,
-}: { label: string; required?: boolean; className?: string; children: React.ReactNode }) {
-  return (
-    <label className={`flex flex-col gap-1.5 ${className}`}>
-      <span className="text-xs uppercase tracking-widest text-gold-soft">
-        {label} {required && <span className="text-destructive">*</span>}
-      </span>
-      {children}
-    </label>
-  );
-}
-
 /* ============================== FOOTER ============================== */
 
 function Footer({
