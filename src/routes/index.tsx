@@ -374,7 +374,7 @@ function Contact({
           {submitted ? (
             <div className="text-center py-12 animate-fade-up">
               <div className="w-16 h-16 mx-auto rounded-full bg-gradient-gold flex items-center justify-center mb-6">
-                <Check className="w-8 h-8 text-ink" />
+                <Check className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-display text-3xl text-gradient-gold mb-3">Thank you!</h3>
               <p className="text-muted-foreground max-w-md mx-auto">

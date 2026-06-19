@@ -75,15 +75,15 @@ function Login({ onSuccess }: { onSuccess: () => void }) {
       </div>
       <style>{`
         .form-input {
-          background: oklch(0.10 0.008 60);
-          border: 1px solid oklch(0.82 0.13 85 / 0.25);
+          background: #FFFFFF;
+          border: 1px solid rgba(200, 168, 107, 0.25);
           border-radius: 0.6rem;
           padding: 0.7rem 1rem;
           color: var(--foreground);
           outline: none;
           width: 100%;
         }
-        .form-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px oklch(0.82 0.13 85 / 0.2); }
+        .form-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200, 168, 107, 0.2); }
       `}</style>
     </main>
   );
@@ -169,8 +169,8 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 
       <style>{`
         .form-input {
-          background: oklch(0.10 0.008 60);
-          border: 1px solid oklch(0.82 0.13 85 / 0.25);
+          background: #FFFFFF;
+          border: 1px solid rgba(200, 168, 107, 0.25);
           border-radius: 0.5rem;
           padding: 0.6rem 0.85rem;
           color: var(--foreground);
@@ -178,7 +178,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
           width: 100%;
           font-size: 0.9rem;
         }
-        .form-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px oklch(0.82 0.13 85 / 0.2); }
+        .form-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200, 168, 107, 0.2); }
         .field-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold-soft); margin-bottom: 0.3rem; display: block; }
       `}</style>
     </main>
