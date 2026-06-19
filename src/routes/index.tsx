@@ -46,23 +46,32 @@ function HomePage() {
 
 function Header({ business }: { business: ReturnType<typeof useSiteData>[0]["business"] }) {
   return (
-    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[rgba(250,248,244,0.85)] border-b border-[rgba(200,168,107,0.2)] shadow-[0_2px_18px_-12px_rgba(43,43,43,0.18)]">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+    <header className="fixed top-4 left-0 right-0 z-40 px-4">
+      <div className="max-w-7xl mx-auto h-16 px-5 md:px-7 flex items-center justify-between rounded-full bg-white/90 backdrop-blur-xl border border-[#C8A86B]/25 shadow-lg">
         <a href="#top" className="flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-gold" />
-          <span className="font-display text-lg md:text-xl text-gold-soft tracking-wide">
+          <div className="w-9 h-9 rounded-full bg-[#C8A86B]/15 flex items-center justify-center">
+            <Sparkles className="w-5 h-5 text-[#8C6A35]" />
+          </div>
+
+          <span className="font-display text-xl md:text-2xl font-bold text-[#2B2B2B] tracking-wide">
             Made to Share
           </span>
         </a>
-        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
-          <a href="#menu" className="hover:text-gold transition-colors">Menu</a>
-          <a href="#packages" className="hover:text-gold transition-colors">Packages</a>
-          <a href="#delivery" className="hover:text-gold transition-colors">Delivery</a>
-          <a href="#gallery" className="hover:text-gold transition-colors">Gallery</a>
-          <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
+
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#555555]">
+          <a href="#menu" className="hover:text-[#8C6A35] transition-colors">Menu</a>
+          <a href="#packages" className="hover:text-[#8C6A35] transition-colors">Packages</a>
+          <a href="#delivery" className="hover:text-[#8C6A35] transition-colors">Delivery</a>
+          <a href="#gallery" className="hover:text-[#8C6A35] transition-colors">Gallery</a>
+          <a href="#contact" className="hover:text-[#8C6A35] transition-colors">Contact</a>
         </nav>
-        <a href={`tel:${business.phone.replace(/\s+/g, "")}`} className="btn-gold text-sm py-2 px-4">
-          <Phone className="w-4 h-4" /> <span className="hidden sm:inline">{business.phone}</span>
+
+        <a
+          href={`tel:${business.phone.replace(/\s+/g, "")}`}
+          className="btn-gold text-sm py-2.5 px-5 rounded-full"
+        >
+          <Phone className="w-4 h-4" />
+          <span className="hidden sm:inline">{business.phone}</span>
         </a>
       </div>
     </header>
@@ -166,19 +175,32 @@ function Occasions() {
     { icon: GlassWater, label: "Special Events" },
     { icon: Users, label: "Family Gatherings" },
   ];
+
   return (
-    <section className="py-16 bg-ink border-y border-[oklch(0.82_0.13_85/0.15)]">
+    <section className="py-20 bg-[#FAF8F4]">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-center font-display text-2xl md:text-3xl text-gold-soft tracking-widest uppercase mb-10">
-          Perfect for any occasion
-        </h2>
+        <div className="text-center mb-12">
+          <p className="uppercase tracking-[0.25em] text-sm font-semibold text-[#8C6A35] mb-3">
+            Catering For Every Moment
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-[#2B2B2B]">
+            Perfect for any occasion
+          </h2>
+        </div>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {items.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex flex-col items-center text-center gap-3 p-4">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center border border-gold/40 bg-[oklch(0.82_0.13_85/0.06)]">
-                <Icon className="w-7 h-7 text-gold" />
+            <div
+              key={label}
+              className="bg-white rounded-2xl border border-[#C8A86B]/20 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col items-center text-center gap-4"
+            >
+              <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#C8A86B]/15">
+                <Icon className="w-7 h-7 text-[#8C6A35]" />
               </div>
-              <span className="text-xs tracking-widest uppercase text-muted-foreground">{label}</span>
+
+              <span className="text-sm font-semibold text-[#2B2B2B]">
+                {label}
+              </span>
             </div>
           ))}
         </div>
@@ -340,14 +362,23 @@ function Packages({ packages }: { packages: ReturnType<typeof useSiteData>[0]["p
 
 function AddOns({ addOns }: { addOns: ReturnType<typeof useSiteData>[0]["addOns"] }) {
   return (
-    <section className="py-20 bg-ink">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-24 bg-[#F7F4EF]">
+      <div className="max-w-6xl mx-auto px-6">
         <SectionHeader eyebrow="Add Extras" title="Make it perfect" />
-        <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {addOns.map((a) => (
-            <div key={a.id} className="card-elegant px-5 py-4 flex items-center justify-between">
-              <span className="text-foreground/90">{a.name}</span>
-              <span className="text-gold font-semibold">{a.price}</span>
+            <div
+              key={a.id}
+              className="bg-white rounded-2xl border border-[#C8A86B]/20 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 px-6 py-5 flex items-center justify-between gap-4"
+            >
+              <span className="text-lg font-semibold text-[#2B2B2B]">
+                {a.name}
+              </span>
+
+              <span className="text-2xl font-bold text-[#8C6A35]">
+                {a.price}
+              </span>
             </div>
           ))}
         </div>
@@ -355,7 +386,6 @@ function AddOns({ addOns }: { addOns: ReturnType<typeof useSiteData>[0]["addOns"
     </section>
   );
 }
-
 /* ============================ DELIVERY ============================ */
 
 function Delivery({ delivery }: { delivery: ReturnType<typeof useSiteData>[0]["delivery"] }) {
@@ -397,27 +427,36 @@ function Delivery({ delivery }: { delivery: ReturnType<typeof useSiteData>[0]["d
 
 function Gallery({ gallery }: { gallery: ReturnType<typeof useSiteData>[0]["gallery"] }) {
   return (
-    <section id="gallery" className="py-24 bg-ink">
+    <section id="gallery" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="Gallery" title="A taste of what we make" />
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-          {gallery.map((g, i) => (
-            <figure
-              key={g.id}
-              className={`group relative overflow-hidden rounded-lg border border-[oklch(0.82_0.13_85/0.15)] ${
-                i % 5 === 0 ? "row-span-2 aspect-square md:aspect-[3/4]" : "aspect-square"
-              }`}
+        <SectionHeader
+          eyebrow="Gallery"
+          title="A taste of what we create"
+        />
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+          {gallery.map((image, index) => (
+            <div
+              key={image.id}
+              className="group overflow-hidden rounded-[28px] bg-white shadow-lg hover:shadow-2xl transition-all duration-500"
             >
-              <img
-                src={g.url}
-                alt={g.caption}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 to-transparent text-xs text-gold-soft opacity-0 group-hover:opacity-100 transition-opacity">
-                {g.caption}
-              </figcaption>
-            </figure>
+              <div className="overflow-hidden">
+                <img
+                  src={image.image}
+                  alt={image.title || `Gallery ${index + 1}`}
+                  loading="lazy"
+                  className="w-full h-[320px] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+
+              {image.title && (
+                <div className="p-5">
+                  <h3 className="font-display text-2xl font-bold text-[#2B2B2B]">
+                    {image.title}
+                  </h3>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -446,85 +485,133 @@ function Contact({
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: hook up to an email service (Resend, Mailgun, etc) via a server fn.
     console.log("Enquiry submitted:", form);
     setSubmitted(true);
   }
 
   return (
-    <section id="contact" className="py-24">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="contact" className="py-24 bg-[#F7F4EF]">
+      <div className="max-w-6xl mx-auto px-6">
         <SectionHeader eyebrow="Let's make your event delicious" title="Request a catering quote" />
 
-        <div className="mt-12 card-elegant p-6 md:p-10">
-          {submitted ? (
-            <div className="text-center py-12 animate-fade-up">
-              <div className="w-16 h-16 mx-auto rounded-full bg-gradient-gold flex items-center justify-center mb-6">
-                <Check className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-display text-3xl text-gradient-gold mb-3">Thank you!</h3>
-              <p className="text-muted-foreground max-w-md mx-auto">
-                Your enquiry has been received. Cass will be in touch shortly to confirm your event details.
+        <div className="mt-14 grid lg:grid-cols-[0.8fr_1.2fr] gap-8 items-stretch">
+          <div className="rounded-[28px] bg-[#2B2B2B] text-white p-8 md:p-10 shadow-2xl flex flex-col justify-between">
+            <div>
+              <p className="uppercase tracking-[0.25em] text-sm text-[#C8A86B] mb-4">
+                Quick Enquiry
               </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-5">
-              <Field label="Your name" required>
-                <input required value={form.name} onChange={(e) => update("name", e.target.value)} className="form-input" />
-              </Field>
-              <Field label="Phone" required>
-                <input required type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className="form-input" />
-              </Field>
-              <Field label="Email">
-                <input type="email" value={form.email} onChange={(e) => update("email", e.target.value)} className="form-input" />
-              </Field>
-              <Field label="Event date">
-                <input type="date" value={form.eventDate} onChange={(e) => update("eventDate", e.target.value)} className="form-input" />
-              </Field>
-              <Field label="Event type">
-                <select value={form.eventType} onChange={(e) => update("eventType", e.target.value)} className="form-input">
-                  <option value="">Select…</option>
-                  <option>Birthday Party</option>
-                  <option>Funeral / Wake</option>
-                  <option>Business Meeting</option>
-                  <option>Special Event</option>
-                  <option>Family Gathering</option>
-                  <option>Other</option>
-                </select>
-              </Field>
-              <Field label="Number of guests">
-                <input type="number" min={1} value={form.guests} onChange={(e) => update("guests", e.target.value)} className="form-input" />
-              </Field>
-              <Field label="Selected package / menu item" className="sm:col-span-2">
-                <select value={form.selection} onChange={(e) => update("selection", e.target.value)} className="form-input">
-                  <option value="">No preference yet</option>
-                  <optgroup label="Packages">
-                    {packages.map((p) => <option key={p.id}>{p.name}</option>)}
-                  </optgroup>
-                  <optgroup label="Menu items">
-                    {menuItems.map((m) => <option key={m.id}>{m.name}</option>)}
-                  </optgroup>
-                </select>
-              </Field>
-              <Field label="Tell us about your event" className="sm:col-span-2">
-                <textarea rows={4} value={form.message} onChange={(e) => update("message", e.target.value)} className="form-input resize-none" />
-              </Field>
-              <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-4 pt-2">
-                <p className="text-xs text-muted-foreground">
-                  We'll be in touch within 24 hours.
-                </p>
-                <button type="submit" className="btn-gold">
-                  <Mail className="w-4 h-4" /> Send enquiry
-                </button>
+
+              <h3 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
+                Tell us about your event
+              </h3>
+
+              <p className="text-white/75 leading-relaxed mb-8">
+                Share your event details and Cass will get back to you with a catering quote.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
+                  <span className="text-white/85">Fresh homemade catering</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
+                  <span className="text-white/85">Packages for every occasion</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
+                  <span className="text-white/85">Local delivery available</span>
+                </div>
               </div>
-            </form>
-          )}
+            </div>
+
+            <p className="mt-10 font-script text-3xl text-[#C8A86B]">
+              Made fresh. Made local.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-[28px] border border-[#C8A86B]/20 shadow-xl p-6 md:p-10">
+            {submitted ? (
+              <div className="text-center py-12 animate-fade-up">
+                <div className="w-16 h-16 mx-auto rounded-full bg-gradient-gold flex items-center justify-center mb-6">
+                  <Check className="w-8 h-8 text-white" />
+                </div>
+
+                <h3 className="font-display text-4xl text-[#2B2B2B] mb-3">
+                  Thank you!
+                </h3>
+
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  Your enquiry has been received. Cass will be in touch shortly to confirm your event details.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-5">
+                <Field label="Your name" required>
+                  <input required value={form.name} onChange={(e) => update("name", e.target.value)} className="form-input" />
+                </Field>
+
+                <Field label="Phone" required>
+                  <input required type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className="form-input" />
+                </Field>
+
+                <Field label="Email">
+                  <input type="email" value={form.email} onChange={(e) => update("email", e.target.value)} className="form-input" />
+                </Field>
+
+                <Field label="Event date">
+                  <input type="date" value={form.eventDate} onChange={(e) => update("eventDate", e.target.value)} className="form-input" />
+                </Field>
+
+                <Field label="Event type">
+                  <select value={form.eventType} onChange={(e) => update("eventType", e.target.value)} className="form-input">
+                    <option value="">Select…</option>
+                    <option>Birthday Party</option>
+                    <option>Funeral / Wake</option>
+                    <option>Business Meeting</option>
+                    <option>Special Event</option>
+                    <option>Family Gathering</option>
+                    <option>Other</option>
+                  </select>
+                </Field>
+
+                <Field label="Number of guests">
+                  <input type="number" min={1} value={form.guests} onChange={(e) => update("guests", e.target.value)} className="form-input" />
+                </Field>
+
+                <Field label="Selected package / menu item" className="sm:col-span-2">
+                  <select value={form.selection} onChange={(e) => update("selection", e.target.value)} className="form-input">
+                    <option value="">No preference yet</option>
+                    <optgroup label="Packages">
+                      {packages.map((p) => <option key={p.id}>{p.name}</option>)}
+                    </optgroup>
+                    <optgroup label="Menu items">
+                      {menuItems.map((m) => <option key={m.id}>{m.name}</option>)}
+                    </optgroup>
+                  </select>
+                </Field>
+
+                <Field label="Tell us about your event" className="sm:col-span-2">
+                  <textarea rows={5} value={form.message} onChange={(e) => update("message", e.target.value)} className="form-input resize-none" />
+                </Field>
+
+                <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-4 pt-3">
+                  <p className="text-sm text-muted-foreground">
+                    We'll be in touch within 24 hours.
+                  </p>
+
+                  <button type="submit" className="btn-gold text-base py-3 px-7">
+                    <Mail className="w-4 h-4" /> Send enquiry
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
 function Field({
   label, required, className = "", children,
 }: { label: string; required?: boolean; className?: string; children: React.ReactNode }) {
@@ -605,12 +692,34 @@ function Footer({
   );
 }
 
-function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
+function SectionHeader({
+  eyebrow,
+  title,
+}: {
+  eyebrow: string;
+  title: string;
+}) {
   return (
-    <div className="text-center animate-fade-up">
-      <p className="font-script text-2xl md:text-3xl text-gold mb-2">{eyebrow}</p>
-      <h2 className="font-display text-3xl md:text-5xl text-gradient-gold tracking-wide">{title}</h2>
-      <div className="gold-divider mt-5"><Sparkles className="w-4 h-4 text-gold" /></div>
+    <div className="text-center animate-fade-up max-w-4xl mx-auto">
+      <div className="flex items-center justify-center gap-4 mb-4">
+        <div className="w-12 h-[2px] bg-[#C8A86B]" />
+
+        <p className="uppercase tracking-[0.25em] text-sm md:text-base font-semibold text-[#8C6A35]">
+          {eyebrow}
+        </p>
+
+        <div className="w-12 h-[2px] bg-[#C8A86B]" />
+      </div>
+
+      <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-[#2B2B2B] leading-tight">
+        {title}
+      </h2>
+
+      <div className="flex items-center justify-center gap-3 mt-6">
+        <div className="w-16 h-[2px] bg-[#C8A86B]" />
+        <Sparkles className="w-5 h-5 text-[#C8A86B]" />
+        <div className="w-16 h-[2px] bg-[#C8A86B]" />
+      </div>
     </div>
   );
 }
