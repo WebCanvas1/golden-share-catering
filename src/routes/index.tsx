@@ -279,9 +279,16 @@ function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"]
                   </span>
                 </div>
 
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
+                <p className="text-base text-muted-foreground leading-relaxed mb-5">
+  {item.description}
+</p>
+
+<a
+  href="#contact"
+  className="btn-gold w-full text-center text-sm py-2.5"
+>
+  Order
+</a>
               </div>
             </article>
           ))}
@@ -350,12 +357,9 @@ function Packages({ packages }: { packages: ReturnType<typeof useSiteData>[0]["p
                     </div>
                   </div>
 
-                  <a
-                    href="#contact"
-                    className="btn-gold text-base py-3 px-6"
-                  >
-                    Enquire
-                  </a>
+                  <a href="#contact" className="btn-gold text-base py-3 px-6">
+  Order
+</a>
                 </div>
               </div>
             </article>
@@ -517,7 +521,10 @@ function Contact({
   return (
     <section id="contact" className="py-24 bg-[#F7F4EF]">
       <div className="max-w-6xl mx-auto px-6">
-        <SectionHeader eyebrow="Let's make your event delicious" title="Request a catering quote" />
+       <SectionHeader
+  eyebrow="Ready to Order?"
+  title="Place Your Order"
+/>
 
         <div className="mt-14 grid lg:grid-cols-[0.8fr_1.2fr] gap-8 items-stretch">
           <div className="rounded-[28px] bg-[#2B2B2B] text-white p-8 md:p-10 shadow-2xl flex flex-col justify-between">
@@ -557,7 +564,7 @@ function Contact({
                   Thank you!
                 </h3>
                 <p className="text-muted-foreground max-w-md mx-auto">
-                  Your enquiry has been received. Cass will be in touch shortly to confirm your event details.
+                  Your order request has been received.. Cass will be in touch shortly to confirm your event details.
                 </p>
               </div>
             ) : (
@@ -648,7 +655,7 @@ function Contact({
                   </p>
 
                   <button type="submit" className="btn-gold text-base py-3 px-7">
-                    <Mail className="w-4 h-4" /> Send enquiry
+                    <Mail className="w-4 h-4" /> Submit Order
                   </button>
                 </div>
               </form>
