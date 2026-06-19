@@ -79,40 +79,77 @@ function Hero({
   phoneHref: string;
 }) {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-      <img
-        src={heroImg}
-        alt="Premium catering spread"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute inset-0 sparkle-bg" />
+    <section
+      id="top"
+      className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-[#F6F1E8] via-[#FAF8F4] to-[#EFE5D6]"
+    >
+      <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-[#8C6A35]/10 rounded-full blur-3xl" />
 
-      <div className="relative max-w-5xl mx-auto px-6 text-center animate-fade-up">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/40 bg-[oklch(0.82_0.13_85/0.08)] text-gold-soft text-xs tracking-widest uppercase mb-6">
-          <Sparkles className="w-3.5 h-3.5" /> {hero.badge}
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+        <div className="animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-gold/30 shadow-sm text-xs tracking-widest uppercase text-[#8C6A35] mb-6">
+            <Sparkles className="w-4 h-4 text-gold" />
+            {hero.badge}
+          </div>
+
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] text-[#2B2B2B] mb-6">
+            {hero.headline}
+          </h1>
+
+          <p className="font-script text-3xl md:text-4xl text-[#8C6A35] mb-5">
+            {hero.subheadline}
+          </p>
+
+          <p className="max-w-xl text-base md:text-lg text-[#555555] leading-relaxed mb-9">
+            {hero.description}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <a href="#menu" className="btn-gold">
+              {hero.ctaPrimary}
+              <ChevronRight className="w-4 h-4" />
+            </a>
+
+            <a href="#contact" className="btn-outline-gold">
+              {hero.ctaSecondary}
+            </a>
+
+            <a href={phoneHref} className="btn-outline-gold">
+              <Phone className="w-4 h-4" />
+              Call Now
+            </a>
+          </div>
         </div>
 
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] mb-4">
-          <span className="text-gradient-gold">{hero.headline}</span>
-        </h1>
+        <div className="relative animate-fade-up">
+          <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-[6px] border-white bg-white">
+            <img
+              src={heroImg}
+              alt="Premium catering spread"
+              width={900}
+              height={700}
+              className="w-full h-[420px] md:h-[560px] object-cover"
+            />
+          </div>
 
-        <p className="font-script text-3xl md:text-4xl text-gold-soft mb-6 animate-shimmer">
-          {hero.subheadline}
-        </p>
+          <div className="absolute -bottom-6 -left-4 md:-left-8 bg-white rounded-2xl shadow-xl border border-gold/25 px-6 py-5 max-w-[260px]">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#8C6A35] mb-1">
+              Fresh Local Catering
+            </p>
+            <p className="font-display text-2xl text-[#2B2B2B]">
+              Made To Share
+            </p>
+          </div>
 
-        <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground leading-relaxed mb-10">
-          {hero.description}
-        </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <a href="#menu" className="btn-gold">{hero.ctaPrimary} <ChevronRight className="w-4 h-4" /></a>
-          <a href="#contact" className="btn-outline-gold">{hero.ctaSecondary}</a>
-          <a href={phoneHref} className="btn-outline-gold">
-            <Phone className="w-4 h-4" /> Call Now
-          </a>
+          <div className="absolute -top-5 -right-4 md:-right-6 bg-[#2B2B2B] text-white rounded-2xl shadow-xl px-5 py-4">
+            <p className="text-xs uppercase tracking-widest text-gold mb-1">
+              Homemade
+            </p>
+            <p className="font-display text-xl text-gold-soft">
+              By Cass
+            </p>
+          </div>
         </div>
       </div>
     </section>
