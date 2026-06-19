@@ -443,24 +443,24 @@ function Gallery({ gallery }: { gallery: ReturnType<typeof useSiteData>[0]["gall
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
-          {gallery.map((image, index) => (
+          {gallery.map((g, index) => (
             <div
-              key={image.id}
+              key={g.id}
               className="group overflow-hidden rounded-[28px] bg-white shadow-lg hover:shadow-2xl transition-all duration-500"
             >
               <div className="overflow-hidden">
                 <img
-                  src={image.image}
-                  alt={image.title || `Gallery ${index + 1}`}
+                  src={g.url}
+                  alt={g.caption || `Gallery ${index + 1}`}
                   loading="lazy"
                   className="w-full h-[320px] object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
 
-              {image.title && (
+              {g.caption && (
                 <div className="p-5">
                   <h3 className="font-display text-2xl font-bold text-[#2B2B2B]">
-                    {image.title}
+                    {g.caption}
                   </h3>
                 </div>
               )}
@@ -471,7 +471,6 @@ function Gallery({ gallery }: { gallery: ReturnType<typeof useSiteData>[0]["gall
     </section>
   );
 }
-
 /* ============================ CONTACT ============================ */
 
 function Contact({
