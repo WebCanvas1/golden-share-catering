@@ -501,18 +501,18 @@ function Footer({
 
       <style>{`
         .form-input {
-          background: oklch(0.10 0.008 60);
-          border: 1px solid oklch(0.82 0.13 85 / 0.25);
+          background: #FFFFFF;
+          border: 1px solid rgba(43, 43, 43, 0.15);
           border-radius: 0.6rem;
-          padding: 0.75rem 1rem;
-          color: var(--foreground);
+          padding: 0.8rem 1rem;
+          color: #2B2B2B;
           font-size: 0.95rem;
           transition: all 0.2s;
           outline: none;
         }
         .form-input:focus {
-          border-color: var(--gold);
-          box-shadow: 0 0 0 3px oklch(0.82 0.13 85 / 0.2);
+          border-color: #C8A86B;
+          box-shadow: 0 0 0 3px rgba(200, 168, 107, 0.25);
         }
       `}</style>
     </footer>
