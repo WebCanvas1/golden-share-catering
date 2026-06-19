@@ -216,36 +216,48 @@ function About() {
 
 function Menu({ items }: { items: ReturnType<typeof useSiteData>[0]["menuItems"] }) {
   return (
-    <section id="menu" className="py-24 bg-ink relative">
+    <section id="menu" className="py-24 bg-[#F7F4EF] relative">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="Our Menu" title="Fresh, delicious & made to share" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <SectionHeader
+          eyebrow="Our Menu"
+          title="Fresh, delicious & made to share"
+        />
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {items.map((item) => (
-            <article key={item.id} className="card-elegant group">
+            <article
+              key={item.id}
+              className="card-elegant group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-3 mb-1">
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-[#2B2B2B] leading-tight">
-  {item.name}
-</h3>
 
-<span className="gold-tag text-xl md:text-2xl font-bold whitespace-nowrap">
-  {item.price}
-</span>
+              <div className="p-6">
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-[#2B2B2B] leading-tight">
+                    {item.name}
+                  </h3>
+
+                  <span className="gold-tag text-xl md:text-2xl font-bold whitespace-nowrap">
+                    {item.price}
+                  </span>
                 </div>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             </article>
           ))}
         </div>
-        <p className="text-center mt-12 font-script text-2xl text-gold">
+
+        <p className="text-center mt-14 font-script text-3xl text-gold">
           Custom menus available — just ask!
         </p>
       </div>
