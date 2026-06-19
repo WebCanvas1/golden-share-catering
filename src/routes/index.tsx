@@ -36,7 +36,11 @@ function HomePage() {
       <AddOns addOns={addOns.filter((a) => a.active)} />
       <Delivery delivery={delivery} />
       <Gallery gallery={gallery} />
-      <Contact packages={packages} menuItems={menuItems} />
+      <Contact
+  packages={packages}
+  menuItems={menuItems}
+  addOns={addOns.filter((a) => a.active)}
+/>
       <Footer business={business} phoneHref={phoneHref} />
     </main>
   );
@@ -48,17 +52,22 @@ function Header({ business }: { business: ReturnType<typeof useSiteData>[0]["bus
   return (
     <header className="fixed top-4 left-0 right-0 z-40 px-4">
       <div className="max-w-7xl mx-auto h-16 px-5 md:px-7 flex items-center justify-between rounded-full bg-white/90 backdrop-blur-xl border border-[#C8A86B]/25 shadow-lg">
-        <a href="#top" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-full bg-[#C8A86B]/15 flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-[#8C6A35]" />
+        <a href="#top" className="flex items-center gap-3 group">
+          <div className="relative w-11 h-11 rounded-full bg-gradient-to-br from-[#C8A86B] to-[#8C6A35] flex items-center justify-center shadow-md group-hover:scale-105 transition">
+            <Sparkles className="w-5 h-5 text-white" />
           </div>
 
-          <span className="font-display text-xl md:text-2xl font-bold text-[#2B2B2B] tracking-wide">
-            Made to Share
-          </span>
+          <div className="leading-tight">
+            <span className="block font-display text-xl md:text-2xl font-bold text-[#2B2B2B] tracking-wide">
+              Made to Share
+            </span>
+            <span className="hidden sm:block text-[10px] uppercase tracking-[0.25em] text-[#8C6A35]">
+              Fresh Local Catering
+            </span>
+          </div>
         </a>
 
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#555555]">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-bold uppercase tracking-[0.12em] text-[#2B2B2B]">
           <a href="#menu" className="hover:text-[#8C6A35] transition-colors">Menu</a>
           <a href="#packages" className="hover:text-[#8C6A35] transition-colors">Packages</a>
           <a href="#delivery" className="hover:text-[#8C6A35] transition-colors">Delivery</a>
@@ -77,7 +86,6 @@ function Header({ business }: { business: ReturnType<typeof useSiteData>[0]["bus
     </header>
   );
 }
-
 /* =============================== HERO =============================== */
 
 function Hero({
@@ -469,18 +477,36 @@ function Gallery({ gallery }: { gallery: ReturnType<typeof useSiteData>[0]["gall
 function Contact({
   packages,
   menuItems,
+  addOns,
 }: {
   packages: ReturnType<typeof useSiteData>[0]["packages"];
   menuItems: ReturnType<typeof useSiteData>[0]["menuItems"];
+  addOns: ReturnType<typeof useSiteData>[0]["addOns"];
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
-    name: "", phone: "", email: "", eventDate: "",
-    eventType: "", guests: "", selection: "", message: "",
+    name: "",
+    phone: "",
+    email: "",
+    eventDate: "",
+    eventType: "",
+    guests: "",
+    selection: "",
+    addOns: [] as string[],
+    message: "",
   });
 
-  function update<K extends keyof typeof form>(key: K, value: string) {
+  function update<K extends keyof typeof form>(key: K, value: typeof form[K]) {
     setForm((f) => ({ ...f, [key]: value }));
+  }
+
+  function toggleAddOn(addOnName: string) {
+    setForm((f) => ({
+      ...f,
+      addOns: f.addOns.includes(addOnName)
+        ? f.addOns.filter((a) => a !== addOnName)
+        : [...f.addOns, addOnName],
+    }));
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -500,28 +526,20 @@ function Contact({
               <p className="uppercase tracking-[0.25em] text-sm text-[#C8A86B] mb-4">
                 Quick Enquiry
               </p>
-
               <h3 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
                 Tell us about your event
               </h3>
-
               <p className="text-white/75 leading-relaxed mb-8">
                 Share your event details and Cass will get back to you with a catering quote.
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
-                  <span className="text-white/85">Fresh homemade catering</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
-                  <span className="text-white/85">Packages for every occasion</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
-                  <span className="text-white/85">Local delivery available</span>
-                </div>
+                {["Fresh homemade catering", "Packages for every occasion", "Local delivery available"].map((text) => (
+                  <div key={text} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-[#C8A86B] mt-1" />
+                    <span className="text-white/85">{text}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -536,11 +554,9 @@ function Contact({
                 <div className="w-16 h-16 mx-auto rounded-full bg-gradient-gold flex items-center justify-center mb-6">
                   <Check className="w-8 h-8 text-white" />
                 </div>
-
                 <h3 className="font-display text-4xl text-[#2B2B2B] mb-3">
                   Thank you!
                 </h3>
-
                 <p className="text-muted-foreground max-w-md mx-auto">
                   Your enquiry has been received. Cass will be in touch shortly to confirm your event details.
                 </p>
@@ -590,6 +606,38 @@ function Contact({
                     </optgroup>
                   </select>
                 </Field>
+
+                <div className="sm:col-span-2">
+                  <span className="text-xs uppercase tracking-widest text-gold-soft">
+                    Add-on options
+                  </span>
+
+                  <div className="mt-3 grid sm:grid-cols-2 gap-3">
+                    {addOns.map((addOn) => (
+                      <label
+                        key={addOn.id}
+                        className="flex items-center justify-between gap-3 rounded-xl border border-[#C8A86B]/25 bg-[#FAF8F4] px-4 py-3 cursor-pointer hover:border-[#C8A86B] transition"
+                      >
+                        <span className="text-sm font-medium text-[#2B2B2B]">
+                          {addOn.name}
+                        </span>
+
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm font-bold text-[#8C6A35]">
+                            {addOn.price}
+                          </span>
+
+                          <input
+                            type="checkbox"
+                            checked={form.addOns.includes(addOn.name)}
+                            onChange={() => toggleAddOn(addOn.name)}
+                            className="w-4 h-4 accent-[#C8A86B]"
+                          />
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </div>
 
                 <Field label="Tell us about your event" className="sm:col-span-2">
                   <textarea rows={5} value={form.message} onChange={(e) => update("message", e.target.value)} className="form-input resize-none" />
