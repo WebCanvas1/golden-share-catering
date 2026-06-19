@@ -46,7 +46,7 @@ function HomePage() {
 
 function Header({ business }: { business: ReturnType<typeof useSiteData>[0]["business"] }) {
   return (
-    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[oklch(0.10_0.008_60/0.7)] border-b border-[oklch(0.82_0.13_85/0.15)]">
+    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[rgba(250,248,244,0.85)] border-b border-[rgba(200,168,107,0.2)] shadow-[0_2px_18px_-12px_rgba(43,43,43,0.18)]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-gold" />
@@ -458,7 +458,7 @@ function Footer({
   business, phoneHref,
 }: { business: ReturnType<typeof useSiteData>[0]["business"]; phoneHref: string }) {
   return (
-    <footer className="border-t border-[oklch(0.82_0.13_85/0.15)] bg-ink py-14">
+    <footer className="bg-footer-dark border-t border-[rgba(200,168,107,0.25)] py-14">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <div className="gold-divider mb-6"><Heart className="w-4 h-4 fill-gold text-gold" /></div>
         <p className="font-script text-3xl text-gold mb-2">Let's make your next event delicious</p>
@@ -501,18 +501,18 @@ function Footer({
 
       <style>{`
         .form-input {
-          background: oklch(0.10 0.008 60);
-          border: 1px solid oklch(0.82 0.13 85 / 0.25);
+          background: #FFFFFF;
+          border: 1px solid rgba(43, 43, 43, 0.15);
           border-radius: 0.6rem;
-          padding: 0.75rem 1rem;
-          color: var(--foreground);
+          padding: 0.8rem 1rem;
+          color: #2B2B2B;
           font-size: 0.95rem;
           transition: all 0.2s;
           outline: none;
         }
         .form-input:focus {
-          border-color: var(--gold);
-          box-shadow: 0 0 0 3px oklch(0.82 0.13 85 / 0.2);
+          border-color: #C8A86B;
+          box-shadow: 0 0 0 3px rgba(200, 168, 107, 0.25);
         }
       `}</style>
     </footer>
