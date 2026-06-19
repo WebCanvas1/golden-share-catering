@@ -645,6 +645,28 @@ function Contact({
     </section>
   );
 }
+
+function Field({
+  label,
+  required,
+  className = "",
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className={`flex flex-col gap-1.5 ${className}`}>
+      <span className="text-xs uppercase tracking-widest text-[#8C6A35] font-semibold">
+        {label}
+        {required && <span className="text-red-500"> *</span>}
+      </span>
+      {children}
+    </label>
+  );
+}
 /* ============================== FOOTER ============================== */
 
 function Footer({
