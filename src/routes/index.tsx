@@ -260,28 +260,60 @@ function Packages({ packages }: { packages: ReturnType<typeof useSiteData>[0]["p
     <section id="packages" className="py-24">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader eyebrow="Catering Packages" title="Made for every occasion" />
+
         <div className="grid md:grid-cols-2 gap-7 mt-12">
           {packages.map((pkg) => (
-            <article key={pkg.id} className="card-elegant flex flex-col md:flex-row overflow-hidden">
+            <article
+              key={pkg.id}
+              className="card-elegant flex flex-col md:flex-row overflow-hidden"
+            >
               <div className="md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden">
-                <img src={pkg.image} alt={pkg.name} loading="lazy" className="w-full h-full object-cover" />
+                <img
+                  src={pkg.image}
+                  alt={pkg.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
+
               <div className="flex-1 p-6 flex flex-col">
-                <h3 className="font-display text-2xl text-gold-soft mb-2">{pkg.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
+                <h3 className="font-display text-3xl md:text-4xl font-bold text-[#2B2B2B] mb-3 leading-tight">
+                  {pkg.name}
+                </h3>
+
+                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
+                  {pkg.description}
+                </p>
+
                 <ul className="space-y-1.5 mb-5">
                   {pkg.inclusions.map((inc) => (
-                    <li key={inc} className="flex items-start gap-2 text-sm text-foreground/85">
-                      <Check className="w-4 h-4 text-gold mt-0.5 shrink-0" /> {inc}
+                    <li
+                      key={inc}
+                      className="flex items-start gap-2 text-sm text-foreground/85"
+                    >
+                      <Check className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                      {inc}
                     </li>
                   ))}
                 </ul>
+
                 <div className="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-[oklch(0.82_0.13_85/0.15)]">
                   <div>
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground">{pkg.priceLabel}</div>
-                    <div className="font-display text-3xl text-gradient-gold">{pkg.price}</div>
+                    <div className="text-xs uppercase tracking-widest text-muted-foreground">
+                      {pkg.priceLabel}
+                    </div>
+
+                    <div className="font-display text-4xl md:text-5xl font-bold text-[#8C6A35]">
+                      {pkg.price}
+                    </div>
                   </div>
-                  <a href="#contact" className="btn-gold text-sm py-2 px-5">Enquire</a>
+
+                  <a
+                    href="#contact"
+                    className="btn-gold text-base py-3 px-6"
+                  >
+                    Enquire
+                  </a>
                 </div>
               </div>
             </article>
