@@ -264,6 +264,8 @@
   color: #EDE6D7;
 }
 .bg-footer-dark h1, .bg-footer-dark h2, .bg-footer-dark h3 { color: #EDE6D7; }
+.bg-footer-dark .text-muted-foreground { color: #A8A096 !important; }
+.bg-footer-dark .text-gold-soft { color: #E0C68F !important; }
 
 /* Animations */
 @keyframes fade-up {
